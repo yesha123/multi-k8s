@@ -19,4 +19,4 @@ after_success:
   - docker push yesha123/multi-client
   - docker push yesha123/multi-nginx
   - docker push yesha123/multi-server
-  - docker push yesha123/mulri-worker
+  - docker push yesha123/multi-worker
