@@ -3,16 +3,16 @@ services:
   - docker
 
 before_install:
-  - docker_build -t yesha123/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t yesha123/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true yesha123/react-test npm test  
 
 after_success:
-  - docker_build -t yesha123/multi-client ./client
-  - docker_build -t yesha123/multi-nginx ./nginx
-  - docker_build -t yesha123/multi-server ./server
-  - docker_build -t yesha123/multi-worker ./worker
+  - docker build -t yesha123/multi-client ./client
+  - docker build -t yesha123/multi-nginx ./nginx
+  - docker build -t yesha123/multi-server ./server
+  - docker build -t yesha123/multi-worker ./worker
   #Log into the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Take those images and push them to dockerhub
